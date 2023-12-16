@@ -212,7 +212,7 @@ export default () => {
 
             <div className="credits to-right">
               <p>
-                Created with <FaHeart /> •{" "}
+                Created with SNip <FaHeart /> •{" "}
                 <a href="https://github.com/cf12/atarashii-tab">
                   v{pkg.version}
                 </a>

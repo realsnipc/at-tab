@@ -18,6 +18,13 @@ export default () => {
           second: undefined,
         })}
       </h1>
+      <h2 className="date">
+        {now.toLocaleDateString(undefined, {
+          weekday: "long",
+          month: "short",
+          day: "numeric",
+        })}
+      </h2>
 
       <h2 className="date">
         {now.toLocaleDateString(undefined, {

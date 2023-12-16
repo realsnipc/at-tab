@@ -8,6 +8,7 @@ import {
   FaEyeSlash,
   FaUserSecret,
 } from "react-icons/fa"
+import { RiFocus2Line } from "react-icons/ri";
 
 import AppContext from "../contexts/AppContext"
 
@@ -160,9 +161,10 @@ export default () => {
           className={"button" + (config.incognito ? " active" : "")}
           onClick={() => toggle("incognito")}
         >
-          incognito
-          <FaUserSecret size={16} />
+          focus mode
+          <RiFocus2Line size={16} />
         </div>
+        
 
         <div
           className="button"
