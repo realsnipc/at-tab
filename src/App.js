@@ -1,26 +1,26 @@
-import React, { useState, useEffect } from "react"
-import { decode } from "html-entities"
-import { FaReddit, FaSadTear, FaHeart } from "react-icons/fa"
-import { PuffLoader } from "react-spinners"
+import React, { useState, useEffect } from "react";
+import { decode } from "html-entities";
+import { FaReddit, FaSadTear, FaHeart } from "react-icons/fa";
+import { PuffLoader } from "react-spinners";
 
-import useLocalStorage from "./hooks/useLocalStorage"
+import useLocalStorage from "./hooks/useLocalStorage";
 
-import TimeDate from "./components/TimeDate"
-import Config from "./components/Config"
-import Icons from "./components/Icons"
-import Image from "./components/Image"
+import TimeDate from "./components/TimeDate";
+import Config from "./components/Config";
+import Icons from "./components/Icons";
+import Image from "./components/Image";
 
-import AppContext from "./contexts/AppContext"
+import AppContext from "./contexts/AppContext";
 
-import pkg from "../package.json"
+import pkg from "../package.json";
 
-import "./App.scss"
+import "./App.scss";
 
 export default () => {
-  const [data, setData] = useState(undefined)
-  const [loaded, setLoaded] = useState(false)
+  const [data, setData] = useState(undefined);
+  const [loaded, setLoaded] = useState(false);
 
-  const [modalOpen, setModalOpen] = useState(false)
+  const [modalOpen, setModalOpen] = useState(false);
   const [config, setConfig] = useLocalStorage("config", {
     num: null,
     q: `flair:"Desktop"`,
@@ -30,27 +30,27 @@ export default () => {
     theme: {
       primary: "#ffc400",
     },
-  })
+  });
 
   const [cache, setCache] = useLocalStorage("cache", {
     lastUpdated: -1,
     data: [],
-  })
+  });
 
   useEffect(() => {
     document.documentElement.style.setProperty(
       "--primary",
       config.theme.primary
-    )
-  }, [config])
+    );
+  }, [config]);
 
   useEffect(() => {
-    if (loaded || config.incognito) return
+    if (loaded || config.incognito) return;
 
-    console.log("[i] Fetching w/ config:", config)
+    console.log("[i] Fetching w/ config:", config);
 
     async function run() {
-      let posts = []
+      let posts = [];
 
       // Cache for 24 hours, also never refresh cache if pinned
       // If (never cached OR (not pinned AND cache expired))
@@ -59,7 +59,7 @@ export default () => {
         (config.num === null &&
           Date.now() - cache.lastUpdated >= 1000 * 60 * 60 * 24)
       ) {
-        let after = null
+        let after = null;
 
         while (posts.length < 200) {
           const query = new URLSearchParams({
@@ -70,61 +70,61 @@ export default () => {
             restrict_sr: 1,
             include_over_18: config.nsfw && "on",
             after,
-          })
+          });
 
           const res = await fetch(
             `https://www.reddit.com/r/Animewallpaper/search.json?${query}`
-          )
-          const json = await res.json()
+          );
+          const json = await res.json();
 
-          after = json.data.after
-          if (!after) break
+          after = json.data.after;
+          if (!after) break;
 
-          posts = posts.concat(json.data.children)
+          posts = posts.concat(json.data.children);
         }
 
         // Collect posts w/ i.redd.it only
-        posts = posts.map((e) => e.data)
+        posts = posts.map((e) => e.data);
 
         // Filter by NSFW if enabled
-        if (config.nsfw) posts = posts.filter((e) => e.thumbnail === "nsfw")
+        if (config.nsfw) posts = posts.filter((e) => e.thumbnail === "nsfw");
 
-        posts = posts.filter((e) => e.url.includes("i.redd.it"))
+        posts = posts.filter((e) => e.url.includes("i.redd.it"));
 
-        setCache({ lastUpdated: Date.now(), data: posts })
+        setCache({ lastUpdated: Date.now(), data: posts });
       } else {
-        console.log("[i] Using cached posts")
-        posts = cache.data
+        console.log("[i] Using cached posts");
+        posts = cache.data;
       }
 
       if (!posts.length) {
-        setData(null)
-        setLoaded(true)
-        return
+        setData(null);
+        setLoaded(true);
+        return;
       }
 
-      const num = config.num || Math.floor(Math.random() * posts.length)
-      const post = posts[num]
-      const link = `https://redd.it/${post.id}`
+      const num = config.num || Math.floor(Math.random() * posts.length);
+      const post = posts[num];
+      const link = `https://redd.it/${post.id}`;
 
-      console.log("[i] Loading post:", post)
+      console.log("[i] Loading post:", post);
 
-      const rawTitle = decode(post.title)
+      const rawTitle = decode(post.title);
 
       const parts = rawTitle
         .match(/\[.*?\]|\(.*?\)|\{.*?\}/g)
         .filter((e) => !!e)
-        .map((e) => e.slice(1, -1))
-      const title = rawTitle.replace(/\[.*?\]|\(.*?\)|\{.*?\}/g, "").trim()
+        .map((e) => e.slice(1, -1));
+      const title = rawTitle.replace(/\[.*?\]|\(.*?\)|\{.*?\}/g, "").trim();
 
-      let resolution = parts.filter((e) => e.match(/[\d\s]+[x×*][\d\s]+/g))?.[0]
+      let resolution = parts.filter((e) => e.match(/[\d\s]+[x×*][\d\s]+/g))?.[0];
 
       if (resolution) {
-        parts.splice(parts.indexOf(resolution), 1)
-        resolution = resolution.split(/[x×*]/).join(" × ")
+        parts.splice(parts.indexOf(resolution), 1);
+        resolution = resolution.split(/[x×*]/).join(" × ");
       }
 
-      if (title) parts.unshift(title)
+      if (title) parts.unshift(title);
 
       setData({
         title: parts.join(" • "),
@@ -132,11 +132,11 @@ export default () => {
         url: post.url,
         link,
         num,
-      })
+      });
     }
 
-    run()
-  }, [config.incognito, loaded])
+    run();
+  }, [config.incognito, loaded]);
 
   return (
     <AppContext.Provider
@@ -212,7 +212,9 @@ export default () => {
 
             <div className="credits to-right">
               <p>
-                Created with SNip <FaHeart /> •{" "}
+              oishii •  <a href="https://github.com/cf12">
+                  cf12
+                </a> •{" "}
                 <a href="https://github.com/cf12/atarashii-tab">
                   v{pkg.version}
                 </a>
@@ -231,5 +233,5 @@ export default () => {
         )}
       </div>
     </AppContext.Provider>
-  )
-}
+  );
+};

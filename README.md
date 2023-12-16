@@ -1,10 +1,10 @@
 # Atarashii Tab Page
 
-![marquee promo tile](marketing/marquee_promo_tile.png)
+<!-- ![marquee promo tile](marketing/marquee_promo_tile.png) -->
 
-新しい (New) Tab Page displays your favorite anime wallpapers from the r/Animewallpaper subreddit on your new tab page.
+<!-- 新しい (New) Tab Page displays your favorite anime wallpapers from the r/Animewallpaper subreddit on your new tab page. -->
 
-[![Build](https://github.com/cf12/atarashii-tab/actions/workflows/build.yml/badge.svg)](https://github.com/cf12/atarashii-tab/actions/workflows/build.yml)
+<!-- [![Build](https://github.com/cf12/atarashii-tab/actions/workflows/build.yml/badge.svg)](https://github.com/cf12/atarashii-tab/actions/workflows/build.yml) -->
 
 ## Features
 - HD wallpaper backgrounds from [r/Animewallpaper](https://reddit.com/r/Animewallpaper)
