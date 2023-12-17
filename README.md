@@ -1,10 +1,11 @@
-# Atarashii Tab Page
+# Oishii New Tab
 
-<!-- ![marquee promo tile](marketing/marquee_promo_tile.png) -->
+![oishii](marketing/promo-banner.png)
 
-<!-- 新しい (New) Tab Page displays your favorite anime wallpapers from the r/Animewallpaper subreddit on your new tab page. -->
+Oishii (美; oishii) which means the "beautiful" (in Japanese). Featured yet state-of-the-art elegant experience. New Tab with beautiful anime wallpapers from the r/Animewallpaper subreddit. Fork of [atarashii-tab](https://github.com/cf12/atarashii-tab)
 
-<!-- [![Build](https://github.com/cf12/atarashii-tab/actions/workflows/build.yml/badge.svg)](https://github.com/cf12/atarashii-tab/actions/workflows/build.yml) -->
+<!-- badges  -->
+
 
 ## Features
 - HD wallpaper backgrounds from [r/Animewallpaper](https://reddit.com/r/Animewallpaper)
@@ -14,10 +15,16 @@
 - Search for source images on SauceNAO, iqdb.org, and ascii2d.net
 
 ## Attribution & Credits
+
+- Oishii is a fork of [atarashii-tab](https://github.com/cf12/atarashii-tab) by [cf12](https://cf12.org/). Huge props to cf12 for the beautiful code and credit for the original work ✨
 - Posts are directly scraped from [r/Animewallpaper](https://reddit.com/r/Animewallpaper)
-- Wallpaper images are directly fetched from [i.redd.it](https://i.redd.it/)
-- Wallpaper artwork is attributed to original artists & creators
-- Promotional image background: [「GG~ありがと〜！」](https://www.pixiv.net/en/artworks/84017469) by [HOJI](https://www.pixiv.net/en/users/19133926) on [pixiv](https://www.pixiv.net/)
+- Wallpaper images are directly fetched from [i.redd.it](https://i.redd.it/) and artwork is attributed to original artists & creators
+
+### Support 
+
+If you want to appreciate the work, you can support by just by starring the repo. Alternatively you can buy a  for [cf12](https://cf12.org/) ☕️
 
 
-[![available in chrome web store](https://wd.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/LclHxMxqoswLNRcUW3m5.png)](https://chrome.google.com/webstore/detail/atarashii-new-tab-page/dlhcacedlaiagoocbbgkeclgklanpmim)
+
+<!-- 
+[![available in chrome web store](https://wd.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/LclHxMxqoswLNRcUW3m5.png)](https://chrome.google.com/webstore/detail/atarashii-new-tab-page/dlhcacedlaiagoocbbgkeclgklanpmim) -->
